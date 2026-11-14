@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gulf Seller Hub · لوحة التاجر الخليجي</title>
+<style>
+:root{--bg:#f5f7f6;--card:#fff;--ink:#14201d;--mute:#64736f;--line:#e2e8e6;--brand:#0f766e;--bad:#b42318;--badbg:#fdecea;--good:#067647;--goodbg:#e5f5ec;--warn:#946200;--warnbg:#fff3d1}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1514;--card:#182120;--ink:#edf3f1;--mute:#93a6a1;--line:#27342f;--brand:#2dd4bf;--bad:#ff8a80;--badbg:#3a1c19;--good:#5fd69a;--goodbg:#13301f;--warn:#f5c451;--warnbg:#3a2f12}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.6}
+.wrap{max-width:1040px;margin:auto;padding:16px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+h1{margin:4px 0 0;font-size:22px}
+.sub{color:var(--mute);font-size:14px;margin:2px 0 14px}
+#lang{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer}
+.grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:860px){.grid{grid-template-columns:380px 1fr;align-items:start}.sticky{position:sticky;top:12px}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px}
+.card h2{margin:0 0 6px;font-size:16px}
+label{display:block;font-size:12.5px;color:var(--mute);margin:8px 0 2px}
+input,select{width:100%;padding:8px 9px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink);font:inherit;font-size:15px}
+input:focus,select:focus{outline:2px solid var(--brand)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.verdict{border-radius:14px;padding:16px;margin-bottom:14px}
+.verdict b{font-size:20px;display:block}
+.good{background:var(--goodbg);color:var(--good)}.warn{background:var(--warnbg);color:var(--warn)}.bad{background:var(--badbg);color:var(--bad)}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+@media(min-width:600px){.kpis{grid-template-columns:repeat(3,1fr)}}
+.k{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px}
+.k small{display:block;color:var(--mute);font-size:12px}
+.k b{font-size:19px;direction:ltr;unicode-bidi:isolate;display:inline-block}
+.k.bad b{color:var(--bad)}.k.good b{color:var(--good)}.k.warn b{color:var(--warn)}
+ul{margin:6px 0 0;padding-inline-start:20px}
+li{margin:5px 0;font-size:14px}
+.note{font-size:12px;color:var(--mute);margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td{padding:6px 0;border-bottom:1px solid var(--line)}
+td:last-child{text-align:end;font-weight:600;direction:ltr;unicode-bidi:isolate}
+tr:last-child td{border:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><div><h1 data-i="title"></h1><p class="sub" data-i="sub"></p></div><button id="lang" type="button">English</button></div>
+<div class="grid">
+<div class="sticky">
+  <div class="card"><h2 data-i="h1"></h2>
+    <div class="r2"><div><label data-i="cur"></label><select id="cc"><option>SAR</option><option>AED</option><option>KWD</option><option>QAR</option><option>BHD</option><option>OMR</option></select></div>
+    <div><label data-i="plat"></label><select id="plat"><option value="0" data-i="p0"></option><option value="10" data-i="p1"></option><option value="10" data-i="p2"></option><option value="3" data-i="p3"></option></select></div></div>
+    <div class="r2"><div><label data-i="com"></label><input type="number" min="0" max="100" step="any" inputmode="decimal" id="com" value="0"></div>
+    <div><label data-i="pay"></label><input type="number" min="0" max="100" step="any" inputmode="decimal" id="pay" value="3"></div></div>
+    <div class="note" data-i="feenote"></div>
+  </div>
+  <div class="card"><h2 data-i="h2"></h2>
+    <div class="r2"><div><label data-i="price"></label><input type="number" min="0" step="any" inputmode="decimal" id="price" value="150"></div>
+    <div><label data-i="cost"></label><input type="number" min="0" step="any" inputmode="decimal" id="cost" value="50"></div></div>
+    <div class="r2"><div><label data-i="ship"></label><input type="number" min="0" step="any" inputmode="decimal" id="ship" value="15"></div>
+    <div><label data-i="pack"></label><input type="number" min="0" step="any" inputmode="decimal" id="pack" value="3"></div></div>
+    <div class="r2"><div><label data-i="ads"></label><input type="number" min="0" step="any" inputmode="decimal" id="ads" value="30"></div>
+    <div><label data-i="rship"></label><input type="number" min="0" step="any" inputmode="decimal" id="rship" value="15"></div></div>
+  </div>
+  <div class="card"><h2 data-i="h3"></h2>
+    <div class="r2"><div><label data-i="cod"></label><input type="number" min="0" max="100" step="any" inputmode="decimal" id="cod" value="50"></div>
+    <div><label data-i="codfee"></label><input type="number" min="0" step="any" inputmode="decimal" id="codfee" value="0"></div></div>
+    <div class="r2"><div><label data-i="rcod"></label><input type="number" min="0" max="100" step="any" inputmode="decimal" id="rcod" value="20"></div>
+    <div><label data-i="rpre"></label><input type="number" min="0" max="100" step="any" inputmode="decimal" id="rpre" value="6"></div></div>
+  </div>
+  <div class="card"><h2 data-i="h4"></h2>
+    <div class="r2"><div><label data-i="n"></label><input type="number" min="0" step="any" inputmode="decimal" id="n" value="400"></div>
+    <div><label data-i="fix"></label><input type="number" min="0" step="any" inputmode="decimal" id="fix" value="600"></div></div>
+    <div class="r2"><div><label data-i="tm"></label><input type="number" min="0" max="100" step="any" inputmode="decimal" id="tm" value="20"></div>
+    <div><label data-i="disc"></label><input type="number" min="0" max="100" step="any" inputmode="decimal" id="disc" value="15"></div></div>
+    <div class="r2"><div><label data-i="stock"></label><input type="number" min="0" step="any" inputmode="decimal" id="stock" value="300"></div>
+    <div><label data-i="lead"></label><input type="number" min="0" step="any" inputmode="decimal" id="lead" value="14"></div></div>
+    <label data-i="safe"></label><input type="number" min="0" step="any" inputmode="decimal" id="safe" value="5">
+  </div>
+  <div class="note" data-i="privacy"></div>
+</div>
+<div id="out"></div>
+</div>
+</div>
+<script>
+"use strict";
+const T={
+ar:{title:"🌍 لوحة التاجر الخليجي",sub:"أدخل أرقام منتجك مرة واحدة، وستظهر لك كل النتائج: الربح، السعر، الإعلانات، الخصم، الدفع عند الاستلام والمخزون.",
+h1:"1) السوق",h2:"2) المنتج",h3:"3) الدفع والمرتجعات",h4:"4) الحجم والمخزون",
+cur:"العملة",plat:"قناة البيع",p0:"متجري الخاص",p1:"Noon (تقديري)",p2:"Amazon (تقديري)",p3:"سلة / زد (تقديري)",
+com:"عمولة المنصة %",pay:"رسوم الدفع الإلكتروني % (بطاقة/تقسيط)",feenote:"النسب تقديرية، راجع عقدك الفعلي.",
+price:"سعر البيع",cost:"تكلفة المنتج",ship:"شحن للعميل (عليك)",pack:"تغليف",ads:"إعلان لكل طلب مؤكد",rship:"شحن المرتجع",
+cod:"طلبات الدفع عند الاستلام %",codfee:"رسوم COD لكل طلب",rcod:"مرتجعات COD %",rpre:"مرتجعات الدفع المسبق %",
+n:"طلبات شهريًا",fix:"مصاريف ثابتة شهريًا",tm:"هامش الربح المستهدف %",disc:"خصم تفكر فيه %",stock:"المخزون الحالي",lead:"مدة وصول الشحنة (يوم)",safe:"أيام أمان إضافية",
+privacy:"🔒 كل الحسابات تتم داخل متصفحك. لا يُرسَل أي رقم إلى أي خادم ولا يُحفظ.",
+vLoss:"⚠️ تخسر في كل طلب",vWeak:"🟡 ربحك ضعيف وهش",vOk:"✅ منتج مربح",
+vSub:(p,mg,net)=>`ربح الطلب ${p} (هامش ${mg}%). صافي الشهر بعد المصاريف الثابتة: ${net}.`,
+kProfit:"💰 ربح الطلب",kNet:"📆 صافي الشهر",kPrice:x=>`🏷️ سعر لهامش ${x}%`,kRoas:"📣 ROAS التعادل",kCpa:"🎯 أقصى تكلفة للطلب (CPA)",kStock:"📦 المخزون يكفي",
+na:"غير ممكن",day:"يوم",pcs:"قطعة",
+hTodo:"✔ ماذا تفعل الآن",hDet:"تفاصيل",
+tPriceUp:(tp,tm)=>`ارفع السعر إلى ${tp} لتحقيق هامش ${tm}%، أو خفّض تكلفة الإعلان والشحن.`,tPriceUp2:"ارفع السعر أو خفّض تكلفة الإعلان والشحن.",
+tRet:(r,g)=>`نسبة مرتجعاتك المتوقعة ${r}%. كل تحسن 5 نقاط يضيف لك نحو ${g} شهريًا (تأكيد الطلب بالهاتف، تقسيط أو حافز للدفع المسبق).`,
+tRoas:(a,b)=>`إعلانك تحت نقطة التعادل: ROAS الفعلي ${a}x مقابل ${b}x المطلوب.`,
+tDisc:(d,p)=>`خصم ${d}% يحتاج ${p}% مبيعات إضافية حتى لا تخسر. إن لم تتوقع ذلك، لا تفعله.`,tDiscLoss:d=>`خصم ${d}% يحوّل ربح الطلب إلى خسارة.`,
+tStockBad:"المخزون لن يكفي حتى وصول شحنة جديدة. اطلب الآن.",tStockWarn:"وصلت نقطة إعادة الطلب. اطلب هذا الأسبوع.",
+tFix:x=>`تحتاج ${x} طلبًا شهريًا على الأقل لتغطية المصاريف الثابتة.`,tOk:"كل المؤشرات سليمة. راقب المرتجعات وتكلفة الإعلان أسبوعيًا.",
+dRet:"نسبة المرتجعات المتوقعة (مدمجة)",dRetLoss:"خسارة المرتجعات شهريًا",dDisc:d=>`ربح الطلب بعد خصم ${d}%`,dNeed:"مبيعات إضافية لتعويض الخصم",dRoas:"ROAS الفعلي (سعر ÷ إعلان)",dRp:"نقطة إعادة الطلب",dQty:"كمية طلبية لـ 30 يوم",dFix:"طلبات لتغطية الثابتة",
+dNote:"الحسابات تقريبية وتفترض أن الطلب المرتجع يعود للمخزون سليمًا ويخسر الشحن والتغليف والإعلان فقط."},
+en:{title:"🌍 Gulf Seller Hub",sub:"Enter your product numbers once and get everything: profit, pricing, ads, discounts, cash on delivery and stock.",
+h1:"1) Market",h2:"2) Product",h3:"3) Payment & returns",h4:"4) Volume & stock",
+cur:"Currency",plat:"Sales channel",p0:"My own store",p1:"Noon (estimate)",p2:"Amazon (estimate)",p3:"Salla / Zid (estimate)",
+com:"Platform commission %",pay:"Online payment fee % (card/BNPL)",feenote:"Rates are estimates. Check your actual contract.",
+price:"Selling price",cost:"Product cost",ship:"Shipping to customer (you pay)",pack:"Packaging",ads:"Ad cost per confirmed order",rship:"Return shipping",
+cod:"Cash-on-delivery orders %",codfee:"COD fee per order",rcod:"COD return rate %",rpre:"Prepaid return rate %",
+n:"Orders per month",fix:"Fixed costs per month",tm:"Target profit margin %",disc:"Discount you're considering %",stock:"Current stock",lead:"Supplier lead time (days)",safe:"Extra safety days",
+privacy:"🔒 All calculations run inside your browser. No number is sent to any server or stored.",
+vLoss:"⚠️ You lose money on every order",vWeak:"🟡 Thin, fragile profit",vOk:"✅ Profitable product",
+vSub:(p,mg,net)=>`Profit per order ${p} (${mg}% margin). Monthly net after fixed costs: ${net}.`,
+kProfit:"💰 Profit per order",kNet:"📆 Monthly net",kPrice:x=>`🏷️ Price for ${x}% margin`,kRoas:"📣 Break-even ROAS",kCpa:"🎯 Max cost per order (CPA)",kStock:"📦 Stock lasts",
+na:"Not possible",day:"days",pcs:"units",
+hTodo:"✔ What to do now",hDet:"Details",
+tPriceUp:(tp,tm)=>`Raise the price to ${tp} for a ${tm}% margin, or cut ad and shipping costs.`,tPriceUp2:"Raise the price or cut ad and shipping costs.",
+tRet:(r,g)=>`Expected return rate is ${r}%. Every 5-point improvement adds about ${g} per month (phone confirmation, BNPL, or a prepaid incentive).`,
+tRoas:(a,b)=>`Your ads are below break-even: actual ROAS ${a}x vs ${b}x required.`,
+tDisc:(d,p)=>`A ${d}% discount needs ${p}% more sales just to break even. If you don't expect that, skip it.`,tDiscLoss:d=>`A ${d}% discount turns your order profit into a loss.`,
+tStockBad:"Stock won't last until a new shipment arrives. Order now.",tStockWarn:"You've hit the reorder point. Order this week.",
+tFix:x=>`You need at least ${x} orders a month to cover fixed costs.`,tOk:"All indicators look healthy. Watch returns and ad cost weekly.",
+dRet:"Expected return rate (blended)",dRetLoss:"Monthly loss from returns",dDisc:d=>`Profit per order after ${d}% discount`,dNeed:"Extra sales to offset the discount",dRoas:"Actual ROAS (price ÷ ads)",dRp:"Reorder point",dQty:"30-day order quantity",dFix:"Orders to cover fixed costs",
+dNote:"Estimates only. Assumes a returned order goes back to stock undamaged and loses only shipping, packaging and ad cost."}
+};
+let L="ar";
+try{const s=localStorage.getItem("lang");if(s==="en"||s==="ar")L=s}catch(e){}
+const $=i=>document.getElementById(i);
+const v=(i,max=1e9)=>{const x=parseFloat($(i).value);return Number.isFinite(x)?Math.min(Math.max(x,0),max):0};
+const pct=i=>v(i,100);
+const f=(x,d=1)=>Number.isFinite(x)?(Math.round(x*10**d)/10**d).toLocaleString("en-US",{maximumFractionDigits:d}):"—";
+const m=x=>(x<0?"-":"")+f(Math.abs(x))+" "+$("cc").value;
+function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e}
+
+function applyLang(){
+  const d=T[L];
+  document.documentElement.lang=L;document.documentElement.dir=L==="ar"?"rtl":"ltr";
+  document.querySelectorAll("[data-i]").forEach(n=>{const k=n.getAttribute("data-i");if(typeof d[k]==="string")n.textContent=d[k]});
+  $("lang").textContent=L==="ar"?"English":"العربية";
+  document.title=L==="ar"?"لوحة التاجر الخليجي · Gulf Seller Hub":"Gulf Seller Hub · لوحة التاجر الخليجي";
+  calc();
+}
+function calc(){
+  const d=T[L];
+  const P=v("price"),C=v("cost"),S=v("ship"),K=v("pack"),A=v("ads"),RS=v("rship");
+  const cod=pct("cod")/100,cf=v("codfee");
+  const r=cod*pct("rcod")/100+(1-cod)*pct("rpre")/100;
+  const fee=(pct("com")+(1-cod)*pct("pay"))/100;
+  const n=v("n"),fix=v("fix"),lost=S+K+RS;
+  const keptAt=p=>p*(1-fee)-C-S-K-cf*cod;
+  const per=p=>(1-r)*keptAt(p)-r*lost-A;
+  const pr=per(P),margin=P?pr/P*100:0,net=pr*n-fix,cm=pr+A;
+  const beRoas=cm>0?P/cm:Infinity,actRoas=A?P/A:Infinity;
+  const tm=pct("tm")/100,den=(1-r)*(1-fee)-tm;
+  const tp=den>0?((1-r)*(C+S+K+cf*cod)+r*lost+A)/den:NaN;
+  const dc=pct("disc")/100,pd=per(P*(1-dc));
+  const needPct=(pr>0&&pd>0)?(pr/pd-1)*100:NaN;
+  const kept=keptAt(P),retCost=n*r*(kept+lost),gain5=n*0.05*(kept+lost);
+  const daily=n/30,days=daily?v("stock")/daily:0,rp=daily*(v("lead")+v("safe"));
+  const stockCls=v("stock")<=daily*v("lead")?"bad":v("stock")<=rp?"warn":"good";
+  const cls=pr<0?"bad":margin<12?"warn":"good";
+
+  const tips=[];
+  if(pr<0)tips.push(isNaN(tp)?d.tPriceUp2:d.tPriceUp(m(tp),f(tm*100,0)));
+  if(r>0.15)tips.push(d.tRet(f(r*100),m(gain5)));
+  if(Number.isFinite(beRoas)&&actRoas<beRoas)tips.push(d.tRoas(f(actRoas),f(beRoas)));
+  if(Number.isFinite(needPct)&&needPct>25)tips.push(d.tDisc(f(dc*100,0),f(needPct,0)));
+  if(pd<=0&&dc>0)tips.push(d.tDiscLoss(f(dc*100,0)));
+  if(stockCls==="bad")tips.push(d.tStockBad);else if(stockCls==="warn")tips.push(d.tStockWarn);
+  if(net<0&&pr>0)tips.push(d.tFix(f(Math.ceil(fix/pr),0)));
+  if(!tips.length)tips.push(d.tOk);
+
+  const out=$("out");out.replaceChildren();
+  const ver=el("div","verdict "+cls);
+  ver.append(el("b","",pr<0?d.vLoss:margin<12?d.vWeak:d.vOk),el("span","",d.vSub(m(pr),f(margin),m(net))));
+  const kp=el("div","kpis");
+  const K_=(l,val,c)=>{const k=el("div","k "+(c||""));k.append(el("small","",l),el("b","",val));kp.append(k)};
+  K_(d.kProfit,m(pr),cls);
+  K_(d.kNet,m(net),net<0?"bad":"good");
+  K_(d.kPrice(f(tm*100,0)),isNaN(tp)?d.na:m(tp));
+  K_(d.kRoas,Number.isFinite(beRoas)?f(beRoas)+"x":"—",Number.isFinite(beRoas)&&actRoas<beRoas?"bad":"good");
+  K_(d.kCpa,m(cm));
+  K_(d.kStock,f(days,0)+" "+d.day,stockCls);
+  const c1=el("div","card");c1.append(el("h2","",d.hTodo));
+  const ul=el("ul");tips.forEach(t=>ul.append(el("li","",t)));c1.append(ul);
+  const c2=el("div","card");c2.append(el("h2","",d.hDet));
+  const tb=el("table");
+  [[d.dRet,f(r*100)+"%"],[d.dRetLoss,m(-retCost)],[d.dDisc(f(dc*100,0)),m(pd)],[d.dNeed,isNaN(needPct)?"—":f(needPct,0)+"%"],
+   [d.dRoas,Number.isFinite(actRoas)?f(actRoas)+"x":"—"],[d.dRp,f(Math.ceil(rp),0)+" "+d.pcs],[d.dQty,f(Math.ceil(n),0)+" "+d.pcs],[d.dFix,pr>0?f(Math.ceil(fix/pr),0):"—"]
+  ].forEach(([a,b])=>{const tr=el("tr");tr.append(el("td","",a),el("td","",b));tb.append(tr)});
+  c2.append(tb,el("div","note",d.dNote));
+  out.append(ver,kp,c1,c2);
+}
+$("plat").addEventListener("change",()=>{$("com").value=$("plat").value;calc()});
+$("lang").addEventListener("click",()=>{L=L==="ar"?"en":"ar";try{localStorage.setItem("lang",L)}catch(e){}applyLang()});
+document.addEventListener("input",calc);
+applyLang();
+</script>
+</body>
+</html>
